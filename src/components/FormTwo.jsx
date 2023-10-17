@@ -23,20 +23,20 @@ export const FormTwo = () => {
               id: 1,
               name: "1 Day Rental",
               timeFrame: "Rental Bike for 1 Day - €45 per Day",
-              stripeId: "price_1Nuw8mI5XtUC28eOEj5rsi9A",
+              stripeId: "price_1O2LA4I5XtUC28eO0BIRbiM8",
             },
             {
               id: 2,
               name: "3 Day Rental",
               timeFrame:
                 "Rental Bike for 3 Days - €38.25 per Day - 15% Discount",
-              stripeId: "price_1NuwAZI5XtUC28eOSDLp3rSL",
+              stripeId: "price_1O2LA4I5XtUC28eORjtI7xJt",
             },
             {
               id: 3,
               name: "5 Day Rental",
               timeFrame: "Rental Bike for 5 Days - €36 per Day - 20% Discount",
-              stripeId: "price_1NuwBJI5XtUC28eOsGGJsU3d",
+              stripeId: "price_1O2LA4I5XtUC28eOLpWfvKhm",
             },
           ],
         },
@@ -47,20 +47,20 @@ export const FormTwo = () => {
               id: 1,
               name: "1 Day Rental",
               timeFrame: "Rental Bike for 1 Day - €45 per Day",
-              stripeId: "price_1Nuw8mI5XtUC28eOEj5rsi9A",
+              stripeId: "price_1O2LEPI5XtUC28eO1x6QzSEH",
             },
             {
               id: 2,
               name: "3 Day Rental",
               timeFrame:
                 "Rental Bike for 3 Days - €38.25 per Day - 15% Discount",
-              stripeId: "price_1NuwAZI5XtUC28eOSDLp3rSL",
+              stripeId: "price_1O2LEPI5XtUC28eOS23GAKj6",
             },
             {
               id: 3,
               name: "5 Day Rental",
               timeFrame: "Rental Bike for 5 Days - €36 per Day - 20% Discount",
-              stripeId: "price_1NuwBJI5XtUC28eOsGGJsU3d",
+              stripeId: "price_1O2LEPI5XtUC28eOxPBereAb",
             },
           ],
         },
@@ -310,11 +310,26 @@ export const FormTwo = () => {
     console.log("redirectToCheckout");
 
     const stripe = await getStripe();
+    const queryParams = new URLSearchParams();
+
+    // Append all form values to the query parameters
+    queryParams.append("fullName", fullName);
+    queryParams.append("address", JSON.stringify(address));
+    queryParams.append("passportNumber", passportNumber);
+    queryParams.append("email", email);
+    queryParams.append("phoneContact", phoneContact);
+    queryParams.append("selectedBike", formData.formSteps.selectedBike);
+    queryParams.append(
+      "selectedRentalOption",
+      formData.formSteps.selectedRentalOption
+    );
     const { error } = await stripe.redirectToCheckout({
       lineItems: [item],
       mode: "payment",
-      successUrl: `${window.location.origin}/success`,
+      // successUrl: `${window.location.origin}/success`,
+      successUrl: `${window.location.origin}/success?${queryParams.toString()}`,
       cancelUrl: `${window.location.origin}/cancel`,
+      customerEmail: email,
     });
 
     console.log("Stripe checkout error", error);
