@@ -5,7 +5,7 @@ export const App = () => {
   return (
     <>
       <BrowserRouter>
-        <nav>
+        {/* <nav>
           <ul className="app-ul">
             <li className="app-li">
               <Link to="/">Home</Link>
@@ -17,7 +17,7 @@ export const App = () => {
               <Link to="/contact">Contact</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
         <main>
           <Routes>{routes}</Routes>
