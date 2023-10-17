@@ -3,7 +3,7 @@ import routes from "./routes/routes";
 
 import "./App.css";
 
-function App() {
+export const App = () => {
   return (
     <>
       <BrowserRouter>
@@ -27,6 +27,4 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
-
-export default App;
+};

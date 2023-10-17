@@ -1,5 +1,5 @@
 import Logos from "../components/Logos";
-function About() {
+export const About = () => {
   const text = {
     heading: "About Page",
     intro: "This is an about page containing some lorem ipsum filler text",
@@ -16,6 +16,4 @@ function About() {
       </div>
     </>
   );
-}
-
-export default About;
+};

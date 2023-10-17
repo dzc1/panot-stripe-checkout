@@ -1,5 +1,5 @@
 import Logos from "../components/Logos";
-function Contact() {
+export const Contact = () => {
   const text = {
     heading: "Contact Page",
     intro: "This is a contact page containing some lorem ipsum filler text",
@@ -16,6 +16,4 @@ function Contact() {
       </div>
     </>
   );
-}
-
-export default Contact;
+};
