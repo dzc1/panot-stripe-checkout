@@ -16,7 +16,7 @@ export const Rent = () => {
         <div
           className="bg-white overflow-hidden  h-screen"
           style={{
-            backgroundImage: 'url("src/imgs/background-min.png")',
+            backgroundImage: 'url("/background-min.png")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
