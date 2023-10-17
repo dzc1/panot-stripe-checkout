@@ -1,132 +1,111 @@
+import { useState, useEffect } from "react";
 import { formStore } from "../stores/formStore";
 
 export const Form = () => {
-  // Use Zustand's "useStore" hook to access the store
-  // Use Zustand's "useStore" hook to access the store
-  const { formSteps } = formStore();
+  // Create a local state variable "localStep" with an initial value of 1
+  const [localStep, setLocalStep] = useState(1);
+  // Store the selected hotel title
+  const [selectedHotel, setSelectedHotel] = useState("");
+
+  // Access the formSteps value from the store
+  const { step, bikeOptions, setSelectedBike } = formStore().formSteps;
+
+  // Update the localStep state when the step from the store changes
+  useEffect(() => {
+    setLocalStep(step);
+  }, [step]);
+
+  // Function to go to the previous step
+  const goToPreviousStep = () => {
+    if (localStep > 1) {
+      setLocalStep(localStep - 1);
+    }
+  };
+
+  // Function to go to the next step
+  const goToNextStep = () => {
+    if (localStep < 3) {
+      setLocalStep(localStep + 1);
+    }
+  };
+
+  // Handle the change of selected hotel
+  const handleHotelChange = (event) => {
+    const selectedTitle = event.target.value;
+    setSelectedHotel(selectedTitle);
+
+    // Update the selectedBike in the store
+    formStore().setSelectedBike(selectedTitle);
+  };
+
+  // Get the selected hotel object from bikeOptions
+  const selectedHotelObject = bikeOptions.costBlanca.find(
+    (hotel) => hotel.title === selectedHotel
+  );
+
   return (
-    <div>
-      Form
-      <p>{formSteps.step}</p>
-      <section className="">
-        <div className="container mx-auto px-4">
-          <div className="pt-16 pb-24 md:max-w-3xl mx-auto bg-white rounded-3xl">
-            <div className="md:max-w-md mx-auto">
-              <div className="mb-10 text-center"></div>
-              <form>
-                <div className="flex flex-wrap -m-3">
-                  <div className="w-full p-3">
-                    <label
-                      className="block mb-2 text-sm text-gray-500 font-bold"
-                      for="signUpLightReverseInput3-1"
-                    >
-                      Full Name
-                    </label>
-                    <input
-                      className="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
-                      id="signUpLightReverseInput3-1"
-                      type="text"
-                      placeholder="First and last name"
-                    />
-                  </div>
-                  <div className="w-full p-3">
-                    <label
-                      className="block mb-2 text-sm text-gray-500 font-bold"
-                      for="signUpLightReverseInput3-2"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      className="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
-                      id="signUpLightReverseInput3-2"
-                      type="email"
-                      placeholder="Enter email address"
-                    />
-                  </div>
-                  <div className="w-full p-3">
-                    <label
-                      className="block mb-2 text-sm text-gray-500 font-bold"
-                      for="signUpLightReverseInput3-3"
-                    >
-                      Password
-                    </label>
-                    <input
-                      className="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
-                      id="signUpLightReverseInput3-3"
-                      type="password"
-                      placeholder="***************"
-                    />
-                  </div>
-                  <div className="w-full p-3">
-                    <div className="flex flex-wrap items-center justify-between -m-3">
-                      <div className="w-auto p-3">
-                        <div className="flex items-center">
-                          <input
-                            className="opacity-0 absolute h-6 w-6"
-                            id="signUpLightReverseCheckbox3-1"
-                            type="checkbox"
-                          />
-                          <div className="flex flex-shrink-0 justify-center items-center w-6 h-6 mr-4 text-transparent bg-white border border-gray-200 border-neutral-200 rounded-md">
-                            <svg
-                              width="9"
-                              height="7"
-                              viewBox="0 0 9 7"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M0.603516 3.77075L2.68685 5.85409L7.89518 0.645752"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              ></path>
-                            </svg>
-                          </div>
-                          <label
-                            className="text-gray-500 font-bold"
-                            for="signUpLightReverseCheckbox3-1"
-                          >
-                            <span>By signing up, I agree to the </span>
-                            <a
-                              className="text-blue-500 hover:text-blue-600"
-                              href="#"
-                            >
-                              Terms &amp; Conditions
-                            </a>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-full p-3">
-                    <div className="flex flex-wrap md:justify-end -m-2">
-                      <div className="w-full p-2">
-                        <a
-                          className="block px-8 py-3.5 text-lg text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full"
-                          href="#"
-                        >
-                          Sign Up
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-full p-3">
-                    <p className="text-gray-500 text-center font-bold">
-                      <span>Already have an account? </span>
-                      <a
-                        className="text-blue-500 hover:text-blue-600 font-bold"
-                        href="#"
-                      >
-                        Sign In
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <>
+      <h2 className="text-white">FORM INPUTS</h2>
+      <p className="text-white">Current Step: {localStep}</p>
+
+      {localStep === 2 && (
+        <>
+          <h3 className="text-white">Step 2 - HOTEL CHOICE</h3>
+          <p className="text-white">This is the information for step 2.</p>
+
+          {/* Dropdown to select a hotel */}
+          <label htmlFor="hotelSelect" className="text-white">
+            Choose a Hotel:
+          </label>
+          <select
+            id="hotelSelect"
+            onChange={handleHotelChange}
+            value={selectedHotel}
+          >
+            <option value="">Select a Hotel</option>
+            {bikeOptions.costBlanca.map((hotel) => (
+              <option key={hotel.title} value={hotel.title}>
+                {hotel.title}
+              </option>
+            ))}
+          </select>
+
+          {/* Display the selected hotel information */}
+          {selectedHotelObject && (
+            <>
+              <h1>{selectedHotelObject.title}</h1>
+              <p>{selectedHotelObject.timeFrame}</p>
+              {/* Add other information here */}
+            </>
+          )}
+        </>
+      )}
+
+      {localStep === 3 && (
+        <>
+          <h3 className="text-white">Step 3 Information</h3>
+          <p className="text-white">This is the information for step 3.</p>
+          {/* Add any additional content specific to step 3 */}
+        </>
+      )}
+
+      <div>
+        <button
+          onClick={goToPreviousStep}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
+          disabled={localStep === 1}
+        >
+          Previous
+        </button>
+
+        <button
+          onClick={goToNextStep}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+          disabled={localStep === 3}
+        >
+          Next
+        </button>
+      </div>
+    </>
   );
 };

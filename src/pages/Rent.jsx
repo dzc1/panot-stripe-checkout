@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Form } from "../components/Form";
+import { FormTwo } from "../components/FormTwo";
 import { useTranslation } from "react-i18next";
 
 export const Rent = () => {
@@ -22,9 +22,9 @@ export const Rent = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="h-full flex items-center">
-            <div className="md:max-w-2xl text-center mx-auto p-10">
-              <Form />
+          <div className="h-full flex items-center ">
+            <div className="bg-blue-200 text-center mx-auto p-10 w-1/2 h-1/2">
+              <FormTwo />
             </div>
           </div>
         </div>
