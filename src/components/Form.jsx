@@ -18,7 +18,7 @@ export const Form = () => {
       selectedBike: null,
       hotel: [
         {
-          title: "marriot",
+          title: "Hotel Marriot",
           rentalOptions: [
             {
               id: 1,
@@ -42,7 +42,7 @@ export const Form = () => {
           ],
         },
         {
-          title: "daniya",
+          title: "Hotel Daniya",
           rentalOptions: [
             {
               id: 1,
@@ -66,7 +66,7 @@ export const Form = () => {
           ],
         },
         {
-          title: "terra",
+          title: "Hotel Terra",
           rentalOptions: [
             {
               id: 1,
@@ -90,7 +90,7 @@ export const Form = () => {
           ],
         },
         {
-          title: "swissMoraira",
+          title: "Hotel Swiss Moraira",
           rentalOptions: [
             {
               id: 1,
@@ -268,10 +268,8 @@ export const Form = () => {
 
   // Stripe
   const apiEnv = import.meta.env.VITE_STRIPE_KEY;
-  console.log(apiEnv);
   const [stripeError, setStripeError] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  // Dynamically determine the selected rental option's stripeId
   // Dynamically determine the selected rental option's stripeId
   const selectedRentalOption = selectedHotel?.rentalOptions.find(
     (option) => option.name === formData.formSteps.selectedRentalOption
@@ -283,22 +281,6 @@ export const Form = () => {
     price: selectedRentalOption?.stripeId, // Use the selected rental option's stripeId
     quantity: 1,
   };
-
-  //   const customerNotes = `
-  //   Full Name: ${fullName}
-  //   Passport Number: ${passportNumber}
-  //   Email: ${email}
-  //   Phone: ${phoneContact}
-  //   Selected Bike: ${formData.formSteps.selectedBike}
-  //   Selected City: ${
-  //     formData.formSteps.selectedCity ? "Costa Blanca" : "Costa Blanca"
-  //   }
-  //   Address: ${address.address}
-  //   City: ${address.city}
-  //   State: ${address.state}
-  //   Country: ${address.country}
-  //   Postal Code: ${address.postalCode}
-  // `;
 
   const redirectToCheckout = async () => {
     setLoading(true);
