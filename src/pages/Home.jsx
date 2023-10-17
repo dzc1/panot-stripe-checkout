@@ -14,7 +14,7 @@ export const Home = () => {
       <div
         className="bg-white overflow-hidden  h-screen"
         style={{
-          backgroundImage: 'url("src/imgs/background-min.png")',
+          backgroundImage: 'url("/background-min.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -39,7 +39,7 @@ export const Home = () => {
 
             <h1 className="font-heading mb-6 text-5xl lg:text-6xl text-white font-black tracking-tight">
               <span className="block mb-4"> {t("homepage.heading")}</span>
-              <img className="inline" src="src/imgs/panot-white.webp" alt="" />
+              <img className="inline" src="/panot-white.webp" alt="" />
             </h1>
             <p className="mb-8 text-xl font-light text-white">
               {t("homepage.sub-heading")}
