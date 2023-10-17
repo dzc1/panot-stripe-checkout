@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FormTwo } from "../components/FormTwo";
+import { useTranslation } from "react-i18next";
 
 export const Success = () => {
+  const { t, i18n } = useTranslation();
+
+  // Function to change the language
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   const location = useLocation();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -41,20 +51,39 @@ export const Success = () => {
   }, [location.search]);
 
   return (
-    <div>
-      <h2>Payment Successful</h2>
-      <p>Full Name: {formData.fullName}</p>
-      <p>Address: {formData.address.address}</p>
-      <p>City: {formData.address.city}</p>
-      <p>State: {formData.address.state}</p>
-      <p>Country: {formData.address.country}</p>
-      <p>Postal Code: {formData.address.postalCode}</p>
-      <p>Passport Number: {formData.passportNumber}</p>
-      <p>Email: {formData.email}</p>
-      <p>Phone Contact: {formData.phoneContact}</p>
-      <p>Selected Bike: {formData.selectedBike}</p>
-      <p>Selected Rental Option: {formData.selectedRentalOption}</p>
-      {/* Other success page content */}
-    </div>
+    <>
+      <section>
+        <div
+          className="bg-white overflow-hidden  h-screen"
+          style={{
+            backgroundImage: 'url("/background-min.png")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="h-full flex items-center ">
+            <div className="bg-blue-200 text-center mx-auto p-10 w-1/2 h-1/2">
+              <FormTwo />
+              <div>
+                <h2>Payment Successful</h2>
+                <p>Full Name: {formData.fullName}</p>
+                <p>Address: {formData.address.address}</p>
+                <p>City: {formData.address.city}</p>
+                <p>State: {formData.address.state}</p>
+                <p>Country: {formData.address.country}</p>
+                <p>Postal Code: {formData.address.postalCode}</p>
+                <p>Passport Number: {formData.passportNumber}</p>
+                <p>Email: {formData.email}</p>
+                <p>Phone Contact: {formData.phoneContact}</p>
+                <p>Selected Bike: {formData.selectedBike}</p>
+                <p>Selected Rental Option: {formData.selectedRentalOption}</p>
+                {/* Other success page content */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
