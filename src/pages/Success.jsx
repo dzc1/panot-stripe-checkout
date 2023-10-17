@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { FormTwo } from "../components/FormTwo";
 import { useTranslation } from "react-i18next";
 
 export const Success = () => {
@@ -64,7 +63,6 @@ export const Success = () => {
         >
           <div className="h-full flex items-center ">
             <div className="bg-blue-200 text-center mx-auto p-10 w-1/2 h-1/2">
-              <FormTwo />
               <div>
                 <h2>Payment Successful</h2>
                 <p>Full Name: {formData.fullName}</p>

@@ -21,7 +21,7 @@ export const Home = () => {
         }}
       >
         <div className="h-full flex items-center">
-          <div className="md:max-w-2xl text-center mx-auto p-10">
+          <div className="md:max-w-2xl text-center mx-auto p-10 animate__animated animate__fadeIn">
             <span className="inline-block mb-3 text-sm font-bold uppercase tracking-widest text-white">
               {t("homepage.language")}
             </span>

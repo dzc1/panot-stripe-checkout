@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FormTwo } from "../components/FormTwo";
+import { Form } from "../components/Form";
 import { useTranslation } from "react-i18next";
 
 export const Rent = () => {
@@ -23,8 +23,8 @@ export const Rent = () => {
           }}
         >
           <div className="h-full flex items-center ">
-            <div className="bg-blue-200 text-center mx-auto p-10 w-1/2 h-1/2">
-              <FormTwo />
+            <div className="bg-white rounded-lg text-center mx-auto p-10 w-1/2 h-1/2 animate__animated animate__fadeIn">
+              <Form />
             </div>
           </div>
         </div>
