@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { usePDF } from "react-to-pdf";
 
 export const Success = () => {
   const { t, i18n } = useTranslation();
@@ -49,6 +50,14 @@ export const Success = () => {
     });
   }, [location.search]);
 
+  const contentRef = useRef(); // Create a ref for the content to be generated as PDF
+
+  const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
+
+  const generatePDF = () => {
+    toPDF(contentRef.current); // Generate PDF for the content inside the ref
+  };
+
   return (
     <>
       <section>
@@ -61,8 +70,11 @@ export const Success = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="h-full flex items-center px-4">
-            <div className="bg-white rounded text-center mx-auto">
+          <div className="h-full flex items-center px-4" ref={targetRef}>
+            <div
+              className="bg-white rounded text-center mx-auto"
+              ref={contentRef}
+            >
               <div className="bg-slate-900 rounded-t py-4">
                 <h2 className="text-white">{t("successPage.title")}</h2>
               </div>
@@ -112,7 +124,7 @@ export const Success = () => {
                     {formData.phoneContact}
                   </span>
                 </p>
-
+                <button onClick={generatePDF}>Download PDF</button>
                 {/* Other success page content */}
               </div>
             </div>
