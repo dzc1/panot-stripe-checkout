@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 let stripePromise;
 
@@ -349,6 +350,11 @@ export const Form = () => {
             >
               {t("rentPage.stepOne.button")}
             </button>
+            <Link to="/">
+              <button className="text-slate-800 hover:underline cursor-pointer my-8">
+                {t("successPage.rentAnotherButton")}
+              </button>
+            </Link>
           </div>
         </>
       )}
