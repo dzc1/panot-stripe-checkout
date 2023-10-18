@@ -135,7 +135,15 @@ export const Success = () => {
                     {formData.phoneContact}
                   </span>
                 </p>
-                <button onClick={generatePDF}>Download PDF</button>
+                <button
+                  className="bg-slate-900 w-full p-2 text-white rounded mt-8"
+                  onClick={generatePDF}
+                >
+                  Download PDF
+                </button>
+                <Link to="/">
+                  <p className="mt-8 hover:underline">Rent Another Bike</p>{" "}
+                </Link>
                 {/* Other success page content */}
               </div>
             </div>
