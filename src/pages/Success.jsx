@@ -1,16 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { usePDF } from "react-to-pdf";
+import { AFourRecipt } from "../components/paper/AFourRecipt";
+import { Link } from "react-router-dom";
 
 export const Success = () => {
   const { t, i18n } = useTranslation();
-
-  // Function to change the language
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
 
   const location = useLocation();
   const [formData, setFormData] = useState({
@@ -48,27 +44,21 @@ export const Success = () => {
     });
   }, [location.search]);
 
-  const contentRef = useRef(); // Create a ref for the content to be generated as PDF
-
-  const { toPDF, targetRef } = usePDF({
-    filename: `${formData.fullName.replace(
-      /\s+/g,
-      "-"
-    )}${formData.selectedBike.replace(
-      /\s+/g,
-      "-"
-    )}-${formData.selectedRentalOption.replace(/\s+/g, "-")}-agreement.pdf`,
-    options: {
-      unit: "mm", // Set the unit of measurement to millimeters
-      format: "a4", // Set the paper format to A4
-      orientation: "portrait", // Set the orientation to portrait
-    },
-  });
-
-  const generatePDF = () => {
-    toPDF(contentRef.current); // Generate PDF for the content inside the ref
+  const [hidden, setHiden] = useState(false);
+  const handleEvent = () => {
+    console.log("Event triggered in parent component");
+    setHiden(true);
+    console.log(hidden);
+    // You can perform any necessary actions here
   };
 
+  const addressObject = {
+    street: formData.address.address,
+    city: formData.address.city,
+    state: formData.address.state,
+    postalCode: formData.address.postalCode,
+    country: formData.address.country,
+  };
   return (
     <>
       <section>
@@ -81,71 +71,84 @@ export const Success = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="h-full flex items-center px-4" ref={targetRef}>
-            <div
-              className="bg-white rounded text-center mx-auto"
-              ref={contentRef}
-            >
+          <div className="h-full flex items-center px-4">
+            <div className="bg-white rounded text-center mx-auto">
               <div className="bg-slate-900 rounded-t py-4">
                 <h2 className="text-white">{t("successPage.title")}</h2>
               </div>
-              <div className="p-8">
-                <div className="flex flex-col md:flex-wrap md:justify-between mb-4">
+              {!hidden && (
+                <div className="p-8">
+                  <div className="flex flex-col md:flex-wrap md:justify-between mb-4">
+                    <p className="text-left font-bold mb-2">
+                      Hotel{" "}
+                      <span className="block font-light">
+                        {formData.selectedBike}
+                      </span>
+                    </p>
+                    <p className="text-left font-bold mb-2">
+                      Rental Option{" "}
+                      <span className="block font-light">
+                        {formData.selectedRentalOption}
+                      </span>
+                    </p>
+                  </div>
                   <p className="text-left font-bold mb-2">
-                    Hotel{" "}
+                    Full Name{" "}
                     <span className="block font-light">
-                      {formData.selectedBike}
+                      {" "}
+                      {formData.fullName}
                     </span>
                   </p>
                   <p className="text-left font-bold mb-2">
-                    Rental Option{" "}
+                    Address:{" "}
                     <span className="block font-light">
-                      {formData.selectedRentalOption}
+                      {" "}
+                      {formData.address.address}, {formData.address.city}{" "}
+                      {formData.address.state} {formData.address.postalCode},{" "}
+                      {formData.address.country}
                     </span>
                   </p>
-                </div>
-                <p className="text-left font-bold mb-2">
-                  Full Name{" "}
-                  <span className="block font-light"> {formData.fullName}</span>
-                </p>
-                <p className="text-left font-bold mb-2">
-                  Address:{" "}
-                  <span className="block font-light">
-                    {" "}
-                    {formData.address.address}, {formData.address.city}{" "}
-                    {formData.address.state} {formData.address.postalCode},{" "}
-                    {formData.address.country}
-                  </span>
-                </p>
 
-                <p className="text-left font-bold mb-2">
-                  Passport Number:{" "}
-                  <span className="block font-light">
-                    {formData.passportNumber}
-                  </span>
-                </p>
-                <p className="text-left font-bold mb-2">
-                  Email:{" "}
-                  <span className="block font-light">{formData.email}</span>
-                </p>
-                <p className="text-left font-bold mb-2">
-                  Phone Contact:{" "}
-                  <span className="block font-light">
-                    {" "}
-                    {formData.phoneContact}
-                  </span>
-                </p>
-                <button
-                  className="bg-slate-900 w-full p-2 text-white rounded mt-8"
-                  onClick={generatePDF}
-                >
-                  Download PDF
-                </button>
-                <Link to="/">
-                  <p className="mt-8 hover:underline">Rent Another Bike</p>{" "}
-                </Link>
-                {/* Other success page content */}
-              </div>
+                  <p className="text-left font-bold mb-2">
+                    Passport Number:{" "}
+                    <span className="block font-light">
+                      {formData.passportNumber}
+                    </span>
+                  </p>
+                  <p className="text-left font-bold mb-2">
+                    Email:{" "}
+                    <span className="block font-light">{formData.email}</span>
+                  </p>
+                  <p className="text-left font-bold mb-2">
+                    Phone Contact:{" "}
+                    <span className="block font-light">
+                      {" "}
+                      {formData.phoneContact}
+                    </span>
+                  </p>
+                  <button
+                    onClick={handleEvent}
+                    className="bg-slate-900 w-full p-2 text-white rounded mt-8"
+                  >
+                    Generate PDF
+                  </button>
+                  {/* Other success page content */}
+                </div>
+              )}
+              {hidden && (
+                <div className="my-6 px-4">
+                  <AFourRecipt
+                    onEvent={handleEvent}
+                    hotel={formData.selectedBike}
+                    rentalOption={formData.selectedRentalOption}
+                    fullName={formData.fullName}
+                    address={addressObject}
+                    passport={formData.passportNumber}
+                    email={formData.email}
+                    phone={formData.phoneContact}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
