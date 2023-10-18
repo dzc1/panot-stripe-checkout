@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const AFourRecipt = ({
   hotel,
@@ -28,7 +29,7 @@ export const AFourRecipt = ({
   };
 
   const { street, city, state, postalCode, country } = address;
-
+  const { t } = useTranslation();
   return (
     <>
       {/* Conditionally render the div based on the 'isHidden' state */}
@@ -38,37 +39,39 @@ export const AFourRecipt = ({
             <div className="subpage">
               <div className="p-8">
                 <h2 className="text-2xl font-light mb-8">
-                  Recipt Confirmation
+                  {t("successPage.confirmationHeading")}
                 </h2>
                 <div className="flex flex-col md:flex-wrap md:justify-between mb-4">
                   <p className="text-left font-bold mb-2">
-                    Hotel <span className="block font-light">{hotel}</span>
+                    {t("successPage.data.hotel")}
+                    <span className="block font-light">{hotel}</span>
                   </p>
                   <p className="text-left font-bold mb-2">
-                    Rental Option{" "}
+                    {t("successPage.data.option")}
                     <span className="block font-light">{rentalOption}</span>
                   </p>
                 </div>
                 <p className="text-left font-bold mb-2">
-                  Full Name{" "}
+                  {t("successPage.data.name")}
                   <span className="block font-light"> {fullName}</span>
                 </p>
                 <p className="text-left font-bold mb-2">
-                  Address:{" "}
+                  {t("successPage.data.address")}
                   <span className="block font-light">
                     {street} {city} {state}, {country} {postalCode}
                   </span>
                 </p>
 
                 <p className="text-left font-bold mb-2">
-                  Passport Number:{" "}
+                  {t("successPage.data.passport")}
                   <span className="block font-light">{passport}</span>
                 </p>
                 <p className="text-left font-bold mb-2">
-                  Email: <span className="block font-light">{email}</span>
+                  {t("successPage.data.email")}
+                  <span className="block font-light">{email}</span>
                 </p>
                 <p className="text-left font-bold mb-2">
-                  Phone Contact:{" "}
+                  {t("successPage.data.phone")}
                   <span className="block font-light"> {phone}</span>
                 </p>
                 {/* Other success page content */}
@@ -79,11 +82,11 @@ export const AFourRecipt = ({
             className="bg-slate-900 w-full p-2 text-white rounded my-8"
             onClick={visibility}
           >
-            Print
+            {t("successPage.printButton")}
           </button>
           <Link to="/">
             <button className="text-slate-800 hover:underline cursor-pointer mb-8">
-              Rent Another Bike
+              {t("successPage.rentAnotherButton")}
             </button>
           </Link>
         </>

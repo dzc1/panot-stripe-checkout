@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 let stripePromise;
@@ -9,12 +8,11 @@ const getStripe = () => {
   if (!stripePromise) {
     stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PB_KEY);
   }
-
   return stripePromise;
 };
 
 export const Form = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     formSteps: {
       step: 1,
@@ -395,7 +393,7 @@ export const Form = () => {
             {" "}
             <form onSubmit={handleStep3Submit}>
               <label className="flex flex-col items-start font-light text-sm my-2">
-                Full Name
+                {t("rentPage.stepThree.name")}
                 <input
                   className="w-full mt-2 rounded p-1.5  border border-slate-400"
                   type="text"
@@ -406,7 +404,7 @@ export const Form = () => {
                 />
               </label>
               <label className="flex flex-col items-start font-light text-sm mt-4 mb-8">
-                Email
+                {t("rentPage.stepThree.email")}
                 <input
                   className="w-full mt-2 rounded p-1.5 border border-slate-400"
                   type="email"
@@ -418,7 +416,7 @@ export const Form = () => {
               </label>
               <div className="flex flex-wrap justify-between">
                 <label className="flex flex-col items-start font-light text-sm my-2 w-2/3">
-                  Address
+                  {t("rentPage.stepThree.address")}
                   <input
                     className="w-full mt-2 rounded p-1.5 border border-slate-400"
                     type="text"
@@ -429,7 +427,7 @@ export const Form = () => {
                   />
                 </label>
                 <label className="flex flex-col items-start font-light text-sm my-2 w-1/4">
-                  Postal Code
+                  {t("rentPage.stepThree.zip")}
                   <input
                     className="w-full mt-2 rounded p-1.5 border border-slate-400"
                     type="text"
@@ -442,7 +440,7 @@ export const Form = () => {
               </div>
               <div className="flex flex-wrap justify-between">
                 <label className="flex flex-col items-start font-light text-sm my-2 w-2/3">
-                  City
+                  {t("rentPage.stepThree.city")}
                   <input
                     className="w-full mt-2 rounded p-1.5 border border-slate-400"
                     type="text"
@@ -453,7 +451,7 @@ export const Form = () => {
                   />
                 </label>
                 <label className="flex flex-col items-start font-light text-sm my-2 w-1/4">
-                  State
+                  {t("rentPage.stepThree.state")}
                   <input
                     className="w-full mt-2 rounded p-1.5 border border-slate-400"
                     type="text"
@@ -466,7 +464,7 @@ export const Form = () => {
               </div>
 
               <label className="flex flex-col items-start font-light text-sm mt-4 mb-4">
-                Country
+                {t("rentPage.stepThree.country")}
                 <input
                   className="w-full mt-2 rounded p-1.5 border border-slate-400"
                   type="text"
@@ -478,7 +476,7 @@ export const Form = () => {
               </label>
 
               <label className="flex flex-col items-start font-light text-sm my-2 mb-6">
-                Passport Number
+                {t("rentPage.stepThree.passport")}
                 <input
                   className="w-full mt-2 rounded p-1.5 border border-slate-400"
                   type="text"
@@ -490,7 +488,7 @@ export const Form = () => {
               </label>
 
               <label className="flex flex-col items-start font-light text-sm my-2 mb-4">
-                Phone Contact
+                {t("rentPage.stepThree.phone")}
                 <input
                   className="w-full mt-2 rounded p-1.5 border border-slate-400"
                   type="tel"
@@ -504,7 +502,7 @@ export const Form = () => {
                 className="bg-slate-900 w-full rounded p-2 mt-8 mb-4 text-white cursor-pointer"
                 type="submit"
               >
-                Next
+                {t("rentPage.stepThree.buttonNext")}
               </button>
             </form>
           </div>
@@ -513,7 +511,7 @@ export const Form = () => {
             className="text-slate-800 hover:underline cursor-pointer my-8"
             onClick={handlePreviousStep}
           >
-            Previous
+            {t("rentPage.stepThree.buttonPrevious")}
           </button>
         </>
       )}
@@ -525,13 +523,13 @@ export const Form = () => {
           <div className=" px-8 md:px-16 py-8">
             <div className="flex flex-wrap justify-between mb-4">
               <p className="text-left font-bold mb-2">
-                Hotel{" "}
+                {t("rentPage.stepFour.data.hotel")}
                 <span className="block font-light">
                   {formData.formSteps.selectedBike}
                 </span>
               </p>
               <p className="text-left font-bold mb-2">
-                Rental Option{" "}
+                {t("rentPage.stepFour.data.option")}
                 <span className="block font-light">
                   {formData.formSteps.selectedRentalOption}
                 </span>
@@ -539,23 +537,24 @@ export const Form = () => {
             </div>
 
             <p className="text-left font-bold mb-2">
-              Full Name <span className="block font-light"> {fullName}</span>
+              {t("rentPage.stepFour.data.name")}
+              <span className="block font-light"> {fullName}</span>
             </p>
             <p className="text-left font-bold mb-2">
-              Passport Number{" "}
+              {t("rentPage.stepFour.data.passport")}
               <span className="block font-light"> {passportNumber}</span>
             </p>
             <p className="text-left font-bold mb-2">
-              Email: <span className="block font-light"> {email}</span>
+              {t("rentPage.stepFour.data.email")}{" "}
+              <span className="block font-light"> {email}</span>
             </p>
             <p className="text-left font-bold mb-2">
-              Phone Contact{" "}
+              {t("rentPage.stepFour.data.phone")}
               <span className="block font-light"> {phoneContact}</span>
             </p>
             <p className="text-left font-bold mb-2">
-              Address{" "}
+              {t("rentPage.stepFour.data.address")}
               <span className="block font-light">
-                {" "}
                 {address.address}, {address.city}, {address.state},{" "}
                 {address.postalCode}, {address.country}
               </span>
@@ -566,13 +565,17 @@ export const Form = () => {
                 onClick={redirectToCheckout}
                 disabled={isLoading}
               >
-                <p>{isLoading ? "Loading..." : "Buy"}</p>
+                <p>
+                  {isLoading
+                    ? t("rentPage.stepFour.buttonLoading")
+                    : t("rentPage.stepFour.buttonPay")}
+                </p>
               </button>
               <button
                 className="w-full p-2 hover:underline"
                 onClick={handlePreviousStep}
               >
-                Previous
+                {t("rentPage.stepFour.buttonPrevious")}
               </button>
             </div>
           </div>

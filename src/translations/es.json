@@ -1,14 +1,78 @@
 {
   "homepage": {
-    "language": "Lenguaje",
-    "heading": "Alquila una bicicleta con",
-    "sub-heading": "¡Descubre tus alrededores alquilando una bici de Panot, el servicio más top de alquiler de bicicletas exclusivamente para hoteles! Ya sea que quieras explorar las atracciones locales, disfrutar de un paseo relajado por la playa o simplemente desplazarte hasta lugares cercanos, nuestras bicis de alta calidad están listas para hacer tu estancia ¡más inolvidable que nunca!.",
-    "button": "Empezar"
+    "language": "Idioma",
+    "heading": "Alquile una bicicleta con",
+    "sub-heading": "Explore sus alrededores con facilidad alquilando una bicicleta de Panot, el servicio de alquiler de bicicletas de primera calidad exclusivo para hoteles. Ya sea que desee explorar las atracciones locales, disfrutar de un paseo tranquilo por la playa o simplemente viajar a destinos cercanos, nuestras bicicletas de alta calidad están aquí para hacer que su estancia sea más memorable.",
+    "button": "Comenzar"
+  },
+  "rentalOptions": {
+    "one": {
+      "name": "Alquiler de 1 Día",
+      "timeFrame": "Bicicleta de Alquiler por 1 Día - €45 por Día"
+    },
+    "two": {
+      "name": "Alquiler de 3 Días",
+      "timeFrame": "Bicicleta de Alquiler por 3 Días - €38.25 por Día - 15% de Descuento"
+    },
+    "three": {
+      "name": "Alquiler de 5 Días",
+      "timeFrame": "Bicicleta de Alquiler por 5 Días - €36 por Día - 20% de Descuento"
+    }
   },
   "rentPage": {
     "stepOne": {
-      "title": "Selecciona un Hotel",
+      "title": "Seleccione un Hotel",
       "button": "Siguiente"
+    },
+    "stepTwo": {
+      "title": "Seleccione una Opción de Alquiler",
+      "buttonNext": "Seleccionar",
+      "buttonPrevious": "Anterior"
+    },
+    "stepThree": {
+      "title": "Complete sus Detalles",
+      "buttonNext": "Siguiente",
+      "buttonPrevious": "Anterior",
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "address": "Dirección",
+      "zip": "Código Postal",
+      "city": "Ciudad",
+      "state": "Estado",
+      "country": "País",
+      "passport": "Número de Pasaporte",
+      "phone": "Contacto Telefónico"
+    },
+    "stepFour": {
+      "title": "Resumen",
+      "buttonPay": "Pagar",
+      "buttonLoading": "Cargando",
+      "buttonPrevious": "Anterior",
+      "data": {
+        "hotel": "Hotel",
+        "option": "Opción de Alquiler",
+        "name": "Nombre Completo",
+        "passport": "Número de Pasaporte",
+        "email": "Correo Electrónico",
+        "phone": "Contacto Telefónico",
+        "address": "Dirección"
+      }
     }
+  },
+  "successPage": {
+    "title": "Gracias por su compra",
+    "data": {
+      "hotel": "Hotel",
+      "option": "Opción de Alquiler",
+      "name": "Nombre Completo",
+      "passport": "Número de Pasaporte",
+      "email": "Correo Electrónico",
+      "phone": "Contacto Telefónico",
+      "address": "Dirección"
+    },
+    "generateButton": "Generar PDF",
+    "rentAnotherButton": "Alquilar Otra Bicicleta",
+    "printButton": "Imprimir",
+    "confirmationHeading": "Confirmación de Recibo"
   }
 }

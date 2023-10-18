@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { usePDF } from "react-to-pdf";
 import { AFourRecipt } from "../components/paper/AFourRecipt";
 import { Link } from "react-router-dom";
 
 export const Success = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const location = useLocation();
   const [formData, setFormData] = useState({
@@ -80,27 +79,27 @@ export const Success = () => {
                 <div className="p-8">
                   <div className="flex flex-col md:flex-wrap md:justify-between mb-4">
                     <p className="text-left font-bold mb-2">
-                      Hotel{" "}
+                      {t("successPage.data.hotel")}
                       <span className="block font-light">
                         {formData.selectedBike}
                       </span>
                     </p>
                     <p className="text-left font-bold mb-2">
-                      Rental Option{" "}
+                      {t("successPage.data.option")}
                       <span className="block font-light">
                         {formData.selectedRentalOption}
                       </span>
                     </p>
                   </div>
                   <p className="text-left font-bold mb-2">
-                    Full Name{" "}
+                    {t("successPage.data.name")}
                     <span className="block font-light">
                       {" "}
                       {formData.fullName}
                     </span>
                   </p>
                   <p className="text-left font-bold mb-2">
-                    Address:{" "}
+                    {t("successPage.data.address")}
                     <span className="block font-light">
                       {" "}
                       {formData.address.address}, {formData.address.city}{" "}
@@ -110,17 +109,17 @@ export const Success = () => {
                   </p>
 
                   <p className="text-left font-bold mb-2">
-                    Passport Number:{" "}
+                    {t("successPage.data.passport")}
                     <span className="block font-light">
                       {formData.passportNumber}
                     </span>
                   </p>
                   <p className="text-left font-bold mb-2">
-                    Email:{" "}
+                    {t("successPage.data.email")}
                     <span className="block font-light">{formData.email}</span>
                   </p>
                   <p className="text-left font-bold mb-2">
-                    Phone Contact:{" "}
+                    {t("successPage.data.phone")}
                     <span className="block font-light">
                       {" "}
                       {formData.phoneContact}
@@ -130,11 +129,11 @@ export const Success = () => {
                     onClick={handleEvent}
                     className="bg-slate-900 w-full p-2 text-white rounded my-8"
                   >
-                    Generate PDF
+                    {t("successPage.generateButton")}
                   </button>
                   <Link to="/">
                     <button className="text-slate-800 hover:underline cursor-pointer mb-8">
-                      Rent Another Bike
+                      {t("successPage.rentAnotherButton")}
                     </button>
                   </Link>
                   {/* Other success page content */}

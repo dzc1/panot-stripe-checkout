@@ -32,15 +32,47 @@
     "stepThree": {
       "title": "Filll out your Details",
       "buttonNext": "Next",
-      "buttonPrevious": "Previous"
+      "buttonPrevious": "Previous",
+      "name": "Full Name",
+      "email": "Email",
+      "address": "Address",
+      "zip": "Postal Code",
+      "city": "City",
+      "state": "State",
+      "country": "Country",
+      "passport": "Passport Number",
+      "phone": "Phone Contact"
     },
     "stepFour": {
       "title": "Summary",
       "buttonPay": "Pay",
-      "buttonPrevious": "Previous"
+      "buttonLoading": "Loading",
+      "buttonPrevious": "Previous",
+      "data": {
+        "hotel": "Hotel",
+        "option": "Rental Option",
+        "name": "Full Name",
+        "passport": "Passport Number",
+        "email": "Email",
+        "phone": "Phone Contact",
+        "address": "Address"
+      }
     }
   },
   "successPage": {
-    "title": "Thank you for your purchase"
+    "title": "Thank you for your purchase",
+    "data": {
+      "hotel": "Hotel",
+      "option": "Rental Option",
+      "name": "Full Name",
+      "passport": "Passport Number",
+      "email": "Email",
+      "phone": "Phone Contact",
+      "address": "Address"
+    },
+    "generateButton": "Generate PDF",
+    "rentAnotherButton": "Rent Another Bike",
+    "printButton": "Print",
+    "confirmationHeading": "Recipt Confirmation"
   }
 }

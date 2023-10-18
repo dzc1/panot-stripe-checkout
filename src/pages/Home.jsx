@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
 export const Home = () => {
   const { t, i18n } = useTranslation();
-
   // Function to change the language
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
-
   return (
     <section>
       <div
