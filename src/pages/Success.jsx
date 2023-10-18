@@ -67,7 +67,7 @@ export const Success = () => {
                 <h2 className="text-white">{t("successPage.title")}</h2>
               </div>
               <div className="p-8">
-                <div className="flex flex-wrap justify-between mb-4">
+                <div className="flex flex-col md:flex-wrap md:justify-between mb-4">
                   <p className="text-left font-bold mb-2">
                     Hotel{" "}
                     <span className="block font-light">
