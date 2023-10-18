@@ -68,7 +68,8 @@
       "passport": "Número de Pasaporte",
       "email": "Correo Electrónico",
       "phone": "Contacto Telefónico",
-      "address": "Dirección"
+      "address": "Dirección",
+      "checkoutSessionId": "ID de Stripe"
     },
     "generateButton": "Generar PDF",
     "rentAnotherButton": "Alquilar Otra Bicicleta",

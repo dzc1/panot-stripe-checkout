@@ -302,6 +302,9 @@ export const Form = () => {
       mode: "payment",
       // successUrl: `${window.location.origin}/success`,
       successUrl: `${window.location.origin}/success?${queryParams.toString()}`,
+      successUrl: `${
+        window.location.origin
+      }/success?session_id={CHECKOUT_SESSION_ID}&${queryParams.toString()}`,
       cancelUrl: `${window.location.origin}/cancel`,
       customerEmail: email,
     });

@@ -16,6 +16,7 @@ export const Success = () => {
     phoneContact: "",
     selectedBike: "",
     selectedRentalOption: "",
+    checkoutSessionId: "", // Add this
   });
 
   useEffect(() => {
@@ -30,6 +31,7 @@ export const Success = () => {
     const phoneContact = searchParams.get("phoneContact");
     const selectedBike = searchParams.get("selectedBike");
     const selectedRentalOption = searchParams.get("selectedRentalOption");
+    const checkoutSessionId = searchParams.get("session_id");
 
     // Set the formData state with the values from query parameters
     setFormData({
@@ -40,6 +42,7 @@ export const Success = () => {
       phoneContact,
       selectedBike,
       selectedRentalOption,
+      checkoutSessionId,
     });
   }, [location.search]);
 
@@ -125,6 +128,12 @@ export const Success = () => {
                       {formData.phoneContact}
                     </span>
                   </p>
+                  <p className="text-left font-bold mb-2">
+                    {t("successPage.data.checkoutSessionId")}
+                    <span className="block font-light">
+                      {formData.checkoutSessionId}
+                    </span>
+                  </p>
                   <button
                     onClick={handleEvent}
                     className="bg-slate-900 w-full p-2 text-white rounded my-8"
@@ -150,6 +159,7 @@ export const Success = () => {
                     passport={formData.passportNumber}
                     email={formData.email}
                     phone={formData.phoneContact}
+                    stripeId={formData.checkoutSessionId}
                   />
                 </div>
               )}

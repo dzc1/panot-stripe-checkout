@@ -12,6 +12,7 @@ export const AFourRecipt = ({
   email,
   phone,
   onEvent,
+  stripeId,
 }) => {
   const componentRef = useRef();
   const [isHidden, setIsHidden] = useState(true); // State to control visibility
@@ -73,6 +74,10 @@ export const AFourRecipt = ({
                 <p className="text-left font-bold mb-2">
                   {t("successPage.data.phone")}
                   <span className="block font-light"> {phone}</span>
+                </p>
+                <p className="text-left font-bold mb-2">
+                  {t("successPage.data.checkoutSessionId")}
+                  <span className="block font-light"> {stripeId}</span>
                 </p>
                 {/* Other success page content */}
               </div>

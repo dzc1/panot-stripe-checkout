@@ -68,7 +68,8 @@
       "passport": "Passport Number",
       "email": "Email",
       "phone": "Phone Contact",
-      "address": "Address"
+      "address": "Address",
+      "checkoutSessionId": "Stripe ID"
     },
     "generateButton": "Generate PDF",
     "rentAnotherButton": "Rent Another Bike",
