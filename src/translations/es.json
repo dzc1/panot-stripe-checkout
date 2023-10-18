@@ -69,7 +69,7 @@
       "email": "Correo Electrónico",
       "phone": "Contacto Telefónico",
       "address": "Dirección",
-      "checkoutSessionId": "ID de Stripe"
+      "checkoutSessionId": "ID de Stripe (últimos 4 caracteres)"
     },
     "generateButton": "Generar PDF",
     "rentAnotherButton": "Alquilar Otra Bicicleta",

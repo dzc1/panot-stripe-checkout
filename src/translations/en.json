@@ -69,7 +69,7 @@
       "email": "Email",
       "phone": "Phone Contact",
       "address": "Address",
-      "checkoutSessionId": "Stripe ID"
+      "checkoutSessionId": "Stripe ID (last 4 characters)"
     },
     "generateButton": "Generate PDF",
     "rentAnotherButton": "Rent Another Bike",

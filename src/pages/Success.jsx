@@ -130,8 +130,8 @@ export const Success = () => {
                   </p>
                   <p className="text-left font-bold mb-2">
                     {t("successPage.data.checkoutSessionId")}
-                    <span className="block font-light">
-                      {formData.checkoutSessionId}
+                    <span className="block font-light truncate">
+                      {formData.checkoutSessionId.slice(-4)}
                     </span>
                   </p>
                   <button

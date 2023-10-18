@@ -77,7 +77,7 @@ export const AFourRecipt = ({
                 </p>
                 <p className="text-left font-bold mb-2">
                   {t("successPage.data.checkoutSessionId")}
-                  <span className="block font-light"> {stripeId}</span>
+                  <span className="block font-light">{stripeId.slice(-4)}</span>
                 </p>
                 {/* Other success page content */}
               </div>
