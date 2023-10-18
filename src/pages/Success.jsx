@@ -36,8 +36,6 @@ export const Success = () => {
     const selectedBike = searchParams.get("selectedBike");
     const selectedRentalOption = searchParams.get("selectedRentalOption");
 
-    console.log(fullName);
-
     // Set the formData state with the values from query parameters
     setFormData({
       fullName,
@@ -52,7 +50,20 @@ export const Success = () => {
 
   const contentRef = useRef(); // Create a ref for the content to be generated as PDF
 
-  const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
+  const { toPDF, targetRef } = usePDF({
+    filename: `${formData.fullName.replace(
+      /\s+/g,
+      "-"
+    )}${formData.selectedBike.replace(
+      /\s+/g,
+      "-"
+    )}-${formData.selectedRentalOption.replace(/\s+/g, "-")}-agreement.pdf`,
+    options: {
+      unit: "mm", // Set the unit of measurement to millimeters
+      format: "a4", // Set the paper format to A4
+      orientation: "portrait", // Set the orientation to portrait
+    },
+  });
 
   const generatePDF = () => {
     toPDF(contentRef.current); // Generate PDF for the content inside the ref
