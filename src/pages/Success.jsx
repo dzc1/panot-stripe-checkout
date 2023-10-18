@@ -128,10 +128,15 @@ export const Success = () => {
                   </p>
                   <button
                     onClick={handleEvent}
-                    className="bg-slate-900 w-full p-2 text-white rounded mt-8"
+                    className="bg-slate-900 w-full p-2 text-white rounded my-8"
                   >
                     Generate PDF
                   </button>
+                  <Link to="/">
+                    <button className="text-slate-800 hover:underline cursor-pointer mb-8">
+                      Rent Another Bike
+                    </button>
+                  </Link>
                   {/* Other success page content */}
                 </div>
               )}

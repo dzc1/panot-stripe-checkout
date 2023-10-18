@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import { Link } from "react-router-dom";
 
 export const AFourRecipt = ({
   hotel,
@@ -75,11 +76,16 @@ export const AFourRecipt = ({
             </div>
           </div>
           <button
-            className="bg-slate-900 w-full p-2 text-white rounded mt-8"
+            className="bg-slate-900 w-full p-2 text-white rounded my-8"
             onClick={visibility}
           >
             Print
           </button>
+          <Link to="/">
+            <button className="text-slate-800 hover:underline cursor-pointer mb-8">
+              Rent Another Bike
+            </button>
+          </Link>
         </>
       )}
     </>
