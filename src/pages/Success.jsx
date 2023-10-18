@@ -61,21 +61,58 @@ export const Success = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="h-full flex items-center ">
-            <div className="bg-blue-200 text-center mx-auto p-10 w-1/2 h-1/2">
-              <div>
-                <h2>Payment Successful</h2>
-                <p>Full Name: {formData.fullName}</p>
-                <p>Address: {formData.address.address}</p>
-                <p>City: {formData.address.city}</p>
-                <p>State: {formData.address.state}</p>
-                <p>Country: {formData.address.country}</p>
-                <p>Postal Code: {formData.address.postalCode}</p>
-                <p>Passport Number: {formData.passportNumber}</p>
-                <p>Email: {formData.email}</p>
-                <p>Phone Contact: {formData.phoneContact}</p>
-                <p>Selected Bike: {formData.selectedBike}</p>
-                <p>Selected Rental Option: {formData.selectedRentalOption}</p>
+          <div className="h-full flex items-center px-4">
+            <div className="bg-white rounded text-center mx-auto">
+              <div className="bg-slate-900 rounded-t py-4">
+                <h2 className="text-white">{t("successPage.title")}</h2>
+              </div>
+              <div className="p-8">
+                <div className="flex flex-wrap justify-between mb-4">
+                  <p className="text-left font-bold mb-2">
+                    Hotel{" "}
+                    <span className="block font-light">
+                      {formData.selectedBike}
+                    </span>
+                  </p>
+                  <p className="text-left font-bold mb-2">
+                    Rental Option{" "}
+                    <span className="block font-light">
+                      {formData.selectedRentalOption}
+                    </span>
+                  </p>
+                </div>
+                <p className="text-left font-bold mb-2">
+                  Full Name{" "}
+                  <span className="block font-light"> {formData.fullName}</span>
+                </p>
+                <p className="text-left font-bold mb-2">
+                  Address:{" "}
+                  <span className="block font-light">
+                    {" "}
+                    {formData.address.address}, {formData.address.city}{" "}
+                    {formData.address.state} {formData.address.postalCode},{" "}
+                    {formData.address.country}
+                  </span>
+                </p>
+
+                <p className="text-left font-bold mb-2">
+                  Passport Number:{" "}
+                  <span className="block font-light">
+                    {formData.passportNumber}
+                  </span>
+                </p>
+                <p className="text-left font-bold mb-2">
+                  Email:{" "}
+                  <span className="block font-light">{formData.email}</span>
+                </p>
+                <p className="text-left font-bold mb-2">
+                  Phone Contact:{" "}
+                  <span className="block font-light">
+                    {" "}
+                    {formData.phoneContact}
+                  </span>
+                </p>
+
                 {/* Other success page content */}
               </div>
             </div>

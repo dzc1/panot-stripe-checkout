@@ -5,7 +5,42 @@
     "sub-heading": "Explore your surroundings with ease by renting a bike from Panot, the premier bike rental service exclusively for hotels. Whether you're looking to explore the local attractions, enjoy a leisurely ride along the beach, or simply commute to nearby destinations, our high-quality bikes are here to make your stay more memorable.",
     "button": "Get Started"
   },
-  "test": {
-    "title": "testinggg"
+  "rentalOptions": {
+    "one": {
+      "name": "1 Day Rental",
+      "timeFrame": "Rental Bike for 1 Day - €45 per Day"
+    },
+    "two": {
+      "name": "3 Day Rental",
+      "timeFrame": "Rental Bike for 3 Days - €38.25 per Day - 15% Discount"
+    },
+    "three": {
+      "name": "5 Day Rental",
+      "timeFrame": "Rental Bike for 5 Days - €36 per Day - 20% Discount"
+    }
+  },
+  "rentPage": {
+    "stepOne": {
+      "title": "Select a Hotel",
+      "button": "Next"
+    },
+    "stepTwo": {
+      "title": "Select a Rental Option",
+      "buttonNext": "Select",
+      "buttonPrevious": "Previous"
+    },
+    "stepThree": {
+      "title": "Filll out your Details",
+      "buttonNext": "Next",
+      "buttonPrevious": "Previous"
+    },
+    "stepFour": {
+      "title": "Summary",
+      "buttonPay": "Pay",
+      "buttonPrevious": "Previous"
+    }
+  },
+  "successPage": {
+    "title": "Thank you for your purchase"
   }
 }

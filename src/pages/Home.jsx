@@ -50,7 +50,7 @@ export const Home = () => {
                   <div className="flex flex-wrap justify-center -m-2">
                     <div className="w-full p-2">
                       <Link
-                        className="block w-full px-8 py-3 text-lg text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full"
+                        className="block w-full px-8 py-3 text-lg text-center text-white bg-slate-900 hover:bg-slate-600 focus:ring-4 focus:ring-blue-200 rounded"
                         to="/rent"
                       >
                         {t("homepage.button")}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 let stripePromise;
 
 const getStripe = () => {
@@ -12,6 +14,7 @@ const getStripe = () => {
 };
 
 export const Form = () => {
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     formSteps: {
       step: 1,
@@ -22,21 +25,20 @@ export const Form = () => {
           rentalOptions: [
             {
               id: 1,
-              name: "1 Day Rental",
-              timeFrame: "Rental Bike for 1 Day - €45 per Day",
+              name: t("rentalOptions.one.name"),
+              timeFrame: t("rentalOptions.one.timeFrame"),
               stripeId: "price_1O2LA4I5XtUC28eO0BIRbiM8",
             },
             {
               id: 2,
-              name: "3 Day Rental",
-              timeFrame:
-                "Rental Bike for 3 Days - €38.25 per Day - 15% Discount",
+              name: t("rentalOptions.two.name"),
+              timeFrame: t("rentalOptions.two.timeFrame"),
               stripeId: "price_1O2LA4I5XtUC28eORjtI7xJt",
             },
             {
               id: 3,
-              name: "5 Day Rental",
-              timeFrame: "Rental Bike for 5 Days - €36 per Day - 20% Discount",
+              name: t("rentalOptions.three.name"),
+              timeFrame: t("rentalOptions.three.timeFrame"),
               stripeId: "price_1O2LA4I5XtUC28eOLpWfvKhm",
             },
           ],
@@ -46,21 +48,20 @@ export const Form = () => {
           rentalOptions: [
             {
               id: 1,
-              name: "1 Day Rental",
-              timeFrame: "Rental Bike for 1 Day - €45 per Day",
+              name: t("rentalOptions.one.name"),
+              timeFrame: t("rentalOptions.one.timeFrame"),
               stripeId: "price_1O2LEPI5XtUC28eO1x6QzSEH",
             },
             {
               id: 2,
-              name: "3 Day Rental",
-              timeFrame:
-                "Rental Bike for 3 Days - €38.25 per Day - 15% Discount",
+              name: t("rentalOptions.two.name"),
+              timeFrame: t("rentalOptions.two.timeFrame"),
               stripeId: "price_1O2LEPI5XtUC28eOS23GAKj6",
             },
             {
               id: 3,
-              name: "5 Day Rental",
-              timeFrame: "Rental Bike for 5 Days - €36 per Day - 20% Discount",
+              name: t("rentalOptions.three.name"),
+              timeFrame: t("rentalOptions.three.timeFrame"),
               stripeId: "price_1O2LEPI5XtUC28eOxPBereAb",
             },
           ],
@@ -70,21 +71,20 @@ export const Form = () => {
           rentalOptions: [
             {
               id: 1,
-              name: "1 Day Rental",
-              timeFrame: "Rental Bike for 1 Day - €45 per Day",
+              name: t("rentalOptions.one.name"),
+              timeFrame: t("rentalOptions.one.timeFrame"),
               stripeId: "price_1O2LS7I5XtUC28eO3qUmTLTE",
             },
             {
               id: 2,
-              name: "3 Day Rental",
-              timeFrame:
-                "Rental Bike for 3 Days - €38.25 per Day - 15% Discount",
+              name: t("rentalOptions.two.name"),
+              timeFrame: t("rentalOptions.two.timeFrame"),
               stripeId: "price_1O2LS7I5XtUC28eOrjE59qSd",
             },
             {
               id: 3,
-              name: "5 Day Rental",
-              timeFrame: "Rental Bike for 5 Days - €36 per Day - 20% Discount",
+              name: t("rentalOptions.three.name"),
+              timeFrame: t("rentalOptions.three.timeFrame"),
               stripeId: "price_1O2LS7I5XtUC28eOzfUIvC2g",
             },
           ],
@@ -94,21 +94,20 @@ export const Form = () => {
           rentalOptions: [
             {
               id: 1,
-              name: "1 Day Rental",
-              timeFrame: "Rental Bike for 1 Day - €45 per Day",
+              name: t("rentalOptions.one.name"),
+              timeFrame: t("rentalOptions.one.timeFrame"),
               stripeId: "price_1Nuw8mI5XtUC28eOEj5rsi9A",
             },
             {
               id: 2,
-              name: "3 Day Rental",
-              timeFrame:
-                "Rental Bike for 3 Days - €38.25 per Day - 15% Discount",
+              name: t("rentalOptions.two.name"),
+              timeFrame: t("rentalOptions.two.timeFrame"),
               stripeId: "price_1NuwAZI5XtUC28eOSDLp3rSL",
             },
             {
               id: 3,
-              name: "5 Day Rental",
-              timeFrame: "Rental Bike for 5 Days - €36 per Day - 20% Discount",
+              name: t("rentalOptions.three.name"),
+              timeFrame: t("rentalOptions.three.timeFrame"),
               stripeId: "price_1NuwBJI5XtUC28eOsGGJsU3d",
             },
           ],
@@ -318,173 +317,266 @@ export const Form = () => {
   if (stripeError) alert(stripeError);
   return (
     <div>
+      {/* <Link to="/">Home</Link> */}
       {formData.formSteps.step === 1 && (
-        <div>
-          <h2>Step 1: Select a Bike</h2>
-          <Link to="/">Home</Link>
-          <select
-            value={formData.formSteps.selectedBike}
-            onChange={(e) => handleBikeSelection(e.target.value)}
-          >
-            <option>Select a bike</option>
-            {formData.formSteps.hotel.map((bike) => (
-              <option key={bike.title} value={bike.title}>
-                {bike.title}
-              </option>
-            ))}
-          </select>
-          <button
-            onClick={handleNextStep}
-            disabled={!formData.formSteps.selectedBike}
-          >
-            Next
-          </button>
-        </div>
+        <>
+          <div className="bg-slate-900 rounded-t">
+            <h2 className="text-white p-4">{t("rentPage.stepOne.title")}</h2>
+          </div>
+          <div className="flex items-center flex-col py-6 px-8">
+            <select
+              value={formData.formSteps.selectedBike}
+              onChange={(e) => handleBikeSelection(e.target.value)}
+              className="w-full p-3 rounded block my-8 border border-blue-500 text-black"
+            >
+              <option>Select a hotel</option>
+              {formData.formSteps.hotel.map((bike) => (
+                <option key={bike.title} value={bike.title}>
+                  {bike.title}
+                </option>
+              ))}
+            </select>
+            <button
+              // className="bg-slate-900 w-1/2 p-2 text-white rounded"
+              className={`bg-slate-900 w-full p-2 text-white rounded ${
+                !formData.formSteps.selectedBike
+                  ? "opacity-20 pointer-events-none"
+                  : ""
+              }`}
+              onClick={handleNextStep}
+              disabled={!formData.formSteps.selectedBike}
+            >
+              {t("rentPage.stepOne.button")}
+            </button>
+          </div>
+        </>
       )}
 
       {formData.formSteps.step === 2 && selectedHotel && (
-        <div>
-          <h2>Step 2: Choose a Rental Option</h2>
-          <div>
-            {selectedHotel.rentalOptions.map((option) => (
-              <div key={option.id} className="card">
-                <h3>{option.name}</h3>
-                <p>{option.timeFrame}</p>
-                <button onClick={() => handleStep2Submit(option)}>
-                  Select
-                </button>
-              </div>
-            ))}
+        <>
+          <div className="bg-slate-900 rounded-t">
+            <h2 className="text-white p-4">{t("rentPage.stepTwo.title")}</h2>
           </div>
-          <button onClick={handlePreviousStep}>Previous</button>
-        </div>
+          <div className="p-4">
+            <div>
+              {selectedHotel.rentalOptions.map((option) => (
+                <div
+                  key={option.id}
+                  className="border rounded p-4 my-8 hover:shadow-md hover:bg-gray-100 hover:border-gray-200 transition duration-300 ease-in-out"
+                >
+                  <h3>{option.name}</h3>
+                  <p>{option.timeFrame}</p>
+                  <button
+                    className="bg-slate-900 w-1/2 rounded p-2 mt-8 mb-4 text-white cursor-pointer"
+                    onClick={() => handleStep2Submit(option)}
+                  >
+                    {t("rentPage.stepTwo.buttonNext")}
+                  </button>
+                </div>
+              ))}
+            </div>
+            <button
+              className="text-slate-800 hover:underline cursor-pointer my-2"
+              onClick={handlePreviousStep}
+            >
+              {t("rentPage.stepTwo.buttonPrevious")}
+            </button>
+          </div>
+        </>
       )}
 
       {formData.formSteps.step === 3 && (
-        <div>
-          <h2>Step 3: Fill out the Form</h2>
-          <form onSubmit={handleStep3Submit}>
-            <p>{fullName} name</p>
-            <label>
-              Full Name:
-              <input
-                type="text"
-                name="fullName"
-                required
-                value={fullName}
-                onChange={handleFullNameChange}
-              />
-            </label>
-            <label>
-              Address:
-              <input
-                type="text"
-                name="address"
-                required
-                value={address.address}
-                onChange={handleAddressChange}
-              />
-            </label>
-            <label>
-              City:
-              <input
-                type="text"
-                name="city"
-                required
-                value={address.city}
-                onChange={handleAddressChange}
-              />
-            </label>
-            <label>
-              State:
-              <input
-                type="text"
-                name="state"
-                required
-                value={address.state}
-                onChange={handleAddressChange}
-              />
-            </label>
-            <label>
-              Country:
-              <input
-                type="text"
-                name="country"
-                required
-                value={address.country}
-                onChange={handleAddressChange}
-              />
-            </label>
-            <label>
-              Postal Code:
-              <input
-                type="text"
-                name="postalCode"
-                required
-                value={address.postalCode}
-                onChange={handleAddressChange}
-              />
-            </label>
-            <label>
-              Passport Number:
-              <input
-                type="text"
-                name="passportNumber"
-                required
-                value={passportNumber}
-                onChange={handlePassportNumberChange}
-              />
-            </label>
-            <label>
-              Email:
-              <input
-                type="email"
-                name="email"
-                required
-                value={email}
-                onChange={handleEmailChange}
-              />
-            </label>
-            <label>
-              Phone Contact:
-              <input
-                type="tel"
-                name="phoneContact"
-                required
-                value={phoneContact}
-                onChange={handlePhoneContactChange}
-              />
-            </label>
-            <button type="submit">Next</button>
-          </form>
-          <button onClick={handlePreviousStep}>Previous</button>
-        </div>
+        <>
+          <div className="bg-slate-900 rounded-t">
+            <h2 className="text-white p-4">{t("rentPage.stepThree.title")}</h2>
+          </div>
+
+          <div className="p-6 text-slate-800 font-llight">
+            {" "}
+            <form onSubmit={handleStep3Submit}>
+              <label className="flex flex-col items-start font-light text-sm my-2">
+                Full Name
+                <input
+                  className="w-full mt-2 rounded p-1.5  border border-slate-400"
+                  type="text"
+                  name="fullName"
+                  required
+                  value={fullName}
+                  onChange={handleFullNameChange}
+                />
+              </label>
+              <label className="flex flex-col items-start font-light text-sm mt-4 mb-8">
+                Email
+                <input
+                  className="w-full mt-2 rounded p-1.5 border border-slate-400"
+                  type="email"
+                  name="email"
+                  required
+                  value={email}
+                  onChange={handleEmailChange}
+                />
+              </label>
+              <div className="flex flex-wrap justify-between">
+                <label className="flex flex-col items-start font-light text-sm my-2 w-2/3">
+                  Address
+                  <input
+                    className="w-full mt-2 rounded p-1.5 border border-slate-400"
+                    type="text"
+                    name="address"
+                    required
+                    value={address.address}
+                    onChange={handleAddressChange}
+                  />
+                </label>
+                <label className="flex flex-col items-start font-light text-sm my-2 w-1/4">
+                  Postal Code
+                  <input
+                    className="w-full mt-2 rounded p-1.5 border border-slate-400"
+                    type="text"
+                    name="postalCode"
+                    required
+                    value={address.postalCode}
+                    onChange={handleAddressChange}
+                  />
+                </label>
+              </div>
+              <div className="flex flex-wrap justify-between">
+                <label className="flex flex-col items-start font-light text-sm my-2 w-2/3">
+                  City
+                  <input
+                    className="w-full mt-2 rounded p-1.5 border border-slate-400"
+                    type="text"
+                    name="city"
+                    required
+                    value={address.city}
+                    onChange={handleAddressChange}
+                  />
+                </label>
+                <label className="flex flex-col items-start font-light text-sm my-2 w-1/4">
+                  State
+                  <input
+                    className="w-full mt-2 rounded p-1.5 border border-slate-400"
+                    type="text"
+                    name="state"
+                    required
+                    value={address.state}
+                    onChange={handleAddressChange}
+                  />
+                </label>
+              </div>
+
+              <label className="flex flex-col items-start font-light text-sm mt-4 mb-4">
+                Country
+                <input
+                  className="w-full mt-2 rounded p-1.5 border border-slate-400"
+                  type="text"
+                  name="country"
+                  required
+                  value={address.country}
+                  onChange={handleAddressChange}
+                />
+              </label>
+
+              <label className="flex flex-col items-start font-light text-sm my-2 mb-6">
+                Passport Number
+                <input
+                  className="w-full mt-2 rounded p-1.5 border border-slate-400"
+                  type="text"
+                  name="passportNumber"
+                  required
+                  value={passportNumber}
+                  onChange={handlePassportNumberChange}
+                />
+              </label>
+
+              <label className="flex flex-col items-start font-light text-sm my-2 mb-4">
+                Phone Contact
+                <input
+                  className="w-full mt-2 rounded p-1.5 border border-slate-400"
+                  type="tel"
+                  name="phoneContact"
+                  required
+                  value={phoneContact}
+                  onChange={handlePhoneContactChange}
+                />
+              </label>
+              <button
+                className="bg-slate-900 w-full rounded p-2 mt-8 mb-4 text-white cursor-pointer"
+                type="submit"
+              >
+                Next
+              </button>
+            </form>
+          </div>
+
+          <button
+            className="text-slate-800 hover:underline cursor-pointer mb-8"
+            onClick={handlePreviousStep}
+          >
+            Previous
+          </button>
+        </>
       )}
       {formData.formSteps.step === 4 && (
-        <div>
-          <h2>Step 4: Summary</h2>
-          <p>Selected Bike: {formData.formSteps.selectedBike}</p>
-          <p>
-            Selected Rental Option: {formData.formSteps.selectedRentalOption}
-          </p>
-          <p>
-            Selected Rental Option StripeId:{" "}
-            {formData.formSteps.selectedRentalOptionStripeId}
-          </p>
-          <p>Full Name: {fullName}</p>
-          <p>Address: {address.address}</p>
-          <p>City: {address.city}</p>
-          <p>State: {address.state}</p>
-          <p>Country: {address.country}</p>
-          <p>Postal Code: {address.postalCode}</p>
-          <p>Passport Number: {passportNumber}</p>
-          <p>Email: {email}</p>
-          <p>Phone Contact: {phoneContact}</p>
-          <button onClick={handlePreviousStep}>Previous</button>
-          <button onClick={redirectToCheckout} disabled={isLoading}>
-            <p>{isLoading ? "Loading..." : "Buy"}</p>
-          </button>
-        </div>
+        <>
+          <div className="bg-slate-900 rounded-t">
+            <h2 className="text-white p-4">{t("rentPage.stepFour.title")}</h2>
+          </div>
+          <div className=" px-8 md:px-16 py-8">
+            <div className="flex flex-wrap justify-between mb-4">
+              <p className="text-left font-bold mb-2">
+                Hotel{" "}
+                <span className="block font-light">
+                  {formData.formSteps.selectedBike}
+                </span>
+              </p>
+              <p className="text-left font-bold mb-2">
+                Rental Option{" "}
+                <span className="block font-light">
+                  {formData.formSteps.selectedRentalOption}
+                </span>
+              </p>
+            </div>
+
+            <p className="text-left font-bold mb-2">
+              Full Name <span className="block font-light"> {fullName}</span>
+            </p>
+            <p className="text-left font-bold mb-2">
+              Passport Number{" "}
+              <span className="block font-light"> {passportNumber}</span>
+            </p>
+            <p className="text-left font-bold mb-2">
+              Email: <span className="block font-light"> {email}</span>
+            </p>
+            <p className="text-left font-bold mb-2">
+              Phone Contact{" "}
+              <span className="block font-light"> {phoneContact}</span>
+            </p>
+            <p className="text-left font-bold mb-2">
+              Address{" "}
+              <span className="block font-light">
+                {" "}
+                {address.address}, {address.city}, {address.state},{" "}
+                {address.postalCode}, {address.country}
+              </span>
+            </p>
+            <div className="flex flex-col">
+              <button
+                className="w-full p-2 text-white rounded bg-slate-800 mb-6  mt-4"
+                onClick={redirectToCheckout}
+                disabled={isLoading}
+              >
+                <p>{isLoading ? "Loading..." : "Buy"}</p>
+              </button>
+              <button
+                className="w-full p-2 hover:underline"
+                onClick={handlePreviousStep}
+              >
+                Previous
+              </button>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

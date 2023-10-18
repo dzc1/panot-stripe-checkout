@@ -23,7 +23,7 @@ export const Rent = () => {
           }}
         >
           <div className="h-full flex items-center ">
-            <div className="bg-white rounded-lg text-center mx-auto p-10 w-1/2 h-1/2 animate__animated animate__fadeIn">
+            <div className="bg-white rounded-lg text-center mx-auto w-4/5 md:w-1/2  animate__animated animate__fadeIn">
               <Form />
             </div>
           </div>
