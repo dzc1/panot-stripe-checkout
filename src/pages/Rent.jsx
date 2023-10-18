@@ -22,7 +22,7 @@ export const Rent = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div className="h-full flex items-center ">
+          <div className="h-full flex items-center">
             <div className="bg-white rounded-lg text-center mx-auto w-4/5 md:w-1/2  animate__animated animate__fadeIn">
               <Form />
             </div>

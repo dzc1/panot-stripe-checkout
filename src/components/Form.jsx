@@ -357,7 +357,7 @@ export const Form = () => {
           <div className="bg-slate-900 rounded-t">
             <h2 className="text-white p-4">{t("rentPage.stepTwo.title")}</h2>
           </div>
-          <div className="p-4">
+          <div className="p-4 overflow-auto h-96">
             <div>
               {selectedHotel.rentalOptions.map((option) => (
                 <div
@@ -391,7 +391,7 @@ export const Form = () => {
             <h2 className="text-white p-4">{t("rentPage.stepThree.title")}</h2>
           </div>
 
-          <div className="p-6 text-slate-800 font-llight">
+          <div className="p-6 text-slate-800 font-llight overflow-auto h-96 shadow-inner shadow-black">
             {" "}
             <form onSubmit={handleStep3Submit}>
               <label className="flex flex-col items-start font-light text-sm my-2">
@@ -510,7 +510,7 @@ export const Form = () => {
           </div>
 
           <button
-            className="text-slate-800 hover:underline cursor-pointer mb-8"
+            className="text-slate-800 hover:underline cursor-pointer my-8"
             onClick={handlePreviousStep}
           >
             Previous
