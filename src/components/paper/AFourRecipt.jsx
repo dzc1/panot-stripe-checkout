@@ -80,6 +80,43 @@ export const AFourRecipt = ({
                   <span className="block font-light">{stripeId.slice(-4)}</span>
                 </p>
                 {/* Other success page content */}
+                <h2 className="font-bold mb-2 text-center">
+                  Panot Mobility - Terms & Conditions
+                </h2>
+                <p className="text-xs text-left mb-4">
+                  I, <span className="font-bold">{fullName}</span>, of legal
+                  age, residing at{" "}
+                  <span className="font-bold">
+                    {street} {city} {state}, {country} {postalCode}
+                  </span>
+                  . With ID/Passport Number{" "}
+                  <span className="font-bold">{passport}</span>, contact
+                  telephone number <span className="font-bold">{phone}</span>{" "}
+                  and email address <span className="font-bold">{email}</span>.
+                </p>
+                <div className="text-left ">
+                  <p className="text-xs md:text-md mb-2">
+                    {t("successPage.data.consent.one")}{" "}
+                  </p>
+                  <p className="text-xs md:text-md mb-2">
+                    {t("successPage.data.consent.two")}{" "}
+                  </p>
+                  <p className="text-xs md:text-md mb-2">
+                    {t("successPage.data.consent.three")}{" "}
+                  </p>
+                  <p className="text-xs md:text-md mb-2">
+                    {t("successPage.data.consent.four")}{" "}
+                  </p>
+                  <p className="text-xs md:text-md mb-2">
+                    {t("successPage.data.consent.five")}{" "}
+                  </p>
+                  <p className="text-xs md:text-md mb-2">
+                    {t("successPage.data.consent.six")}{" "}
+                  </p>
+                  <p className="text-xs md:text-md mb-2">
+                    {t("successPage.data.consent.seven")}{" "}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

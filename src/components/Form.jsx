@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { Popup } from "./popup/Popup";
 
 let stripePromise;
 
@@ -302,7 +303,7 @@ export const Form = () => {
       lineItems: [item],
       mode: "payment",
       // successUrl: `${window.location.origin}/success`,
-      successUrl: `${window.location.origin}/success?${queryParams.toString()}`,
+      //successUrl: `${window.location.origin}/success?${queryParams.toString()}`,
       successUrl: `${
         window.location.origin
       }/success?session_id={CHECKOUT_SESSION_ID}&${queryParams.toString()}`,
@@ -317,9 +318,23 @@ export const Form = () => {
   };
 
   if (stripeError) alert(stripeError);
+
+  //POP UP DATA
+  const [open, setOpen] = useState(false);
+  const openPopup = () => setOpen(true);
+  const closePopup = () => setOpen(false);
+
+  // TC & Pay Button  Logic
+  const [isChecked, setIsChecked] = useState(false);
+
+  // Function to handle checkbox change
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+    console.log(isChecked);
+  };
+
   return (
     <div>
-      {/* <Link to="/">Home</Link> */}
       {formData.formSteps.step === 1 && (
         <>
           <div className="bg-slate-900 rounded-t">
@@ -568,11 +583,34 @@ export const Form = () => {
                 {address.postalCode}, {address.country}
               </span>
             </p>
+            <div class="flex items-center mb-4">
+              <input
+                id="checkbox-1"
+                aria-describedby="checkbox-1"
+                type="checkbox"
+                class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+              />
+              <label
+                htmlFor="checkbox-1"
+                className="text-sm ml-3 font-medium text-gray-900 text-left"
+              >
+                I agree to Panot's{" "}
+                <a onClick={openPopup} class="text-blue-600 hover:underline ">
+                  terms and conditions
+                </a>
+              </label>
+              {open ? <Popup closePopup={closePopup} /> : null}
+            </div>
             <div className="flex flex-col">
               <button
-                className="w-full p-2 text-white rounded bg-slate-800 mb-6  mt-4"
                 onClick={redirectToCheckout}
-                disabled={isLoading}
+                // disabled={isLoading && isChecked}
+                disabled={isChecked && isLoading}
+                className={`bg-slate-900 w-full p-2 text-white rounded ${
+                  !isChecked ? "opacity-20 pointer-events-none" : ""
+                }`}
               >
                 <p>
                   {isLoading

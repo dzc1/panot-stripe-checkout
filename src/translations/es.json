@@ -56,6 +56,16 @@
         "email": "Correo Electrónico",
         "phone": "Contacto Telefónico",
         "address": "Dirección"
+      },
+      "consent": {
+        "declaration": "Declaro",
+        "one": "  I. Que asumo la responsabilidad de la eBike PANOT y los accesorios que la acompañan (cesta y soporte para móvil) desde el momento de la entrega hasta su devolución.",
+        "two": "II. Que me comprometo a utilizarla con la debida diligencia, de acuerdo con sus características y uso previstos (urbano) y cumpliendo con las regulaciones de tráfico, y me obligo a indemnizar a PANOT, al establecimiento y/o a terceros que proporcionaron la eBike al establecimiento por cualquier daño que pueda surgir debido a mi incumplimiento de tales obligaciones.",
+        "three": "III. - Que he confirmado el estado de la eBike antes de firmar este documento y que se encuentra en perfecto estado estético y técnico, habiendo verificado su funcionamiento adecuado.",
+        "four": "  IV. Que declaro que soy consciente de que la eBike solo puede ser utilizada por la persona designada para ese propósito por el establecimiento.",
+        "five": "V. - Que declaro que soy consciente de que el riesgo asociado con el uso de la eBike no está cubierto por ningún seguro, y seré el único responsable de cualquier daño o lesión que pueda sufrir o causar a terceros durante su uso, eximiendo al establecimiento, a PANOT y a terceros que proporcionaron la eBike al establecimiento de cualquier responsabilidad al respecto.",
+        "six": "VI. - Que declaro que soy consciente de la obligación de devolver la eBike (y los accesorios) en el mismo estado en que se me entregó, y que los daños, pérdida o robo de la eBike no están cubiertos por ningún seguro. Me comprometo a asumir los costos de su reparación en caso de devolución en mal estado y el precio total de la bicicleta en caso de devolución en condiciones no aptas o no devolución.",
+        "seven": "VII. - Que declaro que soy consciente de que la eBike está equipada con un sistema móvil de GPS, y autorizo a PANOT a localizarla en caso de pérdida o robo."
       }
     }
   },

@@ -65,7 +65,7 @@ export const Success = () => {
     <>
       <section>
         <div
-          className="bg-white overflow-hidden  h-screen"
+          className="bg-white overflow-hidden"
           style={{
             backgroundImage: 'url("/background-min.png")',
             backgroundSize: "cover",
@@ -134,6 +134,56 @@ export const Success = () => {
                       {formData.checkoutSessionId.slice(-4)}
                     </span>
                   </p>
+                  <h2 className="font-bold mb-2">
+                    Panot Mobility - Terms & Conditions
+                  </h2>
+                  <p className="text-left text-xs mb-4">
+                    I, <span className="font-bold">{formData.fullName}</span>,
+                    of legal age, residing at{" "}
+                    <span className="font-bold">
+                      {formData.address.address}, {formData.address.city}{" "}
+                      {formData.address.state} {formData.address.postalCode} ,{" "}
+                      {formData.address.country}
+                    </span>
+                    . With ID/Passport Number{" "}
+                    <span className="font-bold">
+                      ${formData.passportNumber}
+                    </span>
+                    , contact telephone number{" "}
+                    <span className="font-bold">{formData.phoneContact}</span>{" "}
+                    and email address{" "}
+                    <span className="font-bold">
+                      {" "}
+                      {formData.passportNumber}
+                    </span>
+                    .
+                  </p>
+                  <div className="text-left ">
+                    <p className="text-xs md:text-md mb-2">
+                      {t("successPage.data.consent.declaration")}{" "}
+                    </p>
+                    <p className="text-xs md:text-md mb-2">
+                      {t("successPage.data.consent.one")}{" "}
+                    </p>
+                    <p className="text-xs md:text-md mb-2">
+                      {t("successPage.data.consent.two")}{" "}
+                    </p>
+                    <p className="text-xs md:text-md mb-2">
+                      {t("successPage.data.consent.three")}{" "}
+                    </p>
+                    <p className="text-xs md:text-md mb-2">
+                      {t("successPage.data.consent.four")}{" "}
+                    </p>
+                    <p className="text-xs md:text-md mb-2">
+                      {t("successPage.data.consent.five")}{" "}
+                    </p>
+                    <p className="text-xs md:text-md mb-2">
+                      {t("successPage.data.consent.six")}{" "}
+                    </p>
+                    <p className="text-xs md:text-md mb-2">
+                      {t("successPage.data.consent.seven")}{" "}
+                    </p>
+                  </div>
                   <button
                     onClick={handleEvent}
                     className="bg-slate-900 w-full p-2 text-white rounded my-8"
